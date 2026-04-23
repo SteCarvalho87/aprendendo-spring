@@ -5,7 +5,6 @@ import com.stephanie.aprendendospring.infrastructure.exceptions.ConflictExceptio
 import com.stephanie.aprendendospring.infrastructure.exceptions.ResourceNotFoundException;
 import com.stephanie.aprendendospring.infrastructure.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +31,7 @@ public class UsuarioService {
 
     //Método para salvar os dados no banco
     public Usuario salvaUsuario(Usuario usuario){
+
         try{
             emailExiste(usuario.getEmail());
             usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
